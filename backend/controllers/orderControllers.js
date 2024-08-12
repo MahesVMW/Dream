@@ -7,7 +7,7 @@ const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID,
   key_secret: process.env.RAZORPAY_SECRET_KEY,
 });
-
+const frontend_URL = 'https://dream-frontend-cvgp.onrender.com/'
 const placeOrder = async (req, res) => {
   try {
     // Create a new order in your database
