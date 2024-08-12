@@ -1,0 +1,122 @@
+.product-details {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+.back-btn {
+    align-self: flex-start;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #3b74b1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
+
+.product-details-image img {
+    width: 300px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.product-details-info {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+.product-details-info h2 {
+    margin: 0 0 10px;
+}
+
+.product-details-info p {
+    margin: 5px 0;
+}
+
+.product-details-info button {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.product-details-info button:hover {
+    background-color: #218838;
+}
+
+.product-details-info button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.product-details-info .remove-btn {
+    background-color: #dc3545;
+}
+
+.product-details-info .remove-btn:hover {
+    background-color: #c82333;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .product-details {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .product-details-image img {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 20px;
+    }
+
+    .product-details-info {
+        width: 100%;
+        align-items: center;
+    }
+
+    .product-details-info button {
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+    }
+}
+
+/* Adjustments for large devices */
+@media (min-width: 769px) {
+    .product-details {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .product-details-image img {
+        width: 400px;
+        margin-right: 40px;
+    }
+
+    .product-details-info {
+        align-items: flex-start;
+    }
+
+    .product-details-info button {
+        width: auto;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}

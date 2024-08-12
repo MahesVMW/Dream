@@ -1,0 +1,43 @@
+/* Base styles */
+.placeorder-form {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  margin-top: 100px; /* Adjust this value based on the height of your navbar */
+  position: relative; /* Ensure the z-index works */
+  z-index: 1; /* Ensure the form appears above other content */
+}
+
+.btn-custom-width {
+  width: 200px; /* Set your desired width */
+}
+
+/* Media queries */
+@media (max-width: 1050px) {
+  .placeorder-form {
+    margin: 20px;
+    margin-top: 80px; /* Adjusted for smaller screens */
+  }
+}
+
+@media (max-width: 900px) {
+  .placeorder-form {
+    margin: 15px;
+    margin-top: 60px; /* Adjusted for smaller screens */
+  }
+}
+
+@media (max-width: 750px) {
+  .placeorder-form {
+    margin: 10px;
+    margin-top: 50px; /* Adjusted for smaller screens */
+  }
+}
+
+@media (max-width: 450px) {
+  .placeorder-form {
+    margin: 5px;
+    margin-top: 40px; /* Adjusted for smaller screens */
+  }
+}

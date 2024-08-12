@@ -1,0 +1,448 @@
+/* General navbar styling */
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content horizontally */
+  width: 100%;
+}
+
+.navbar .cont {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+.navbar-icons{
+  margin-right: 20px;
+  gap: 20px;
+}
+.navbar .logo {
+  width: 180px;
+  top:0;
+  padding-bottom: 5px;
+  text-align: center;
+  position: absolute; /* Position the logo in the center */
+  left: 50%; /* Center the logo horizontally */
+  transform: translateX(-50%); /* Offset by half its width to center */
+}
+
+.navbar .navbar-nav {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  margin-right: auto; /* Push nav items to the left */
+  flex-grow: 1; /* Allow nav items to take remaining space */
+}
+
+.navbar .nav-item {
+  color:white;
+  margin-left: 20px; /* Gap between nav items */
+  text-decoration: none;
+}
+.navbar-profile {
+  position: relative; /* Ensure that the dropdown is positioned relative to the profile icon */
+}
+
+.nav-profile-dropdown {
+  width: 120px;
+  display: block;
+  background-color: #fff2ef;
+  padding: 6px 20px;
+  border-radius: 4px;
+  border: 1px solid tomato;
+  outline: 2px solid white;
+  list-style: none;
+  z-index: 1;
+  position: absolute; /* Position the dropdown relative to the profile icon */
+  left: auto; /* Remove previous left positioning */
+  right: 0; /* Align the dropdown to the right of the profile icon */
+  top: 100%; /* Position it directly below the profile icon */
+  transform: translateY(5px); /* Adjust if needed to prevent overlap */
+  margin-left: 20%;
+  cursor:pointer;
+}
+
+
+.nav-profile-dropdown li {
+  font-size: 12px;
+  padding: 5px;
+}
+.nav-profile-dropdown img{
+  width: 20px;
+}
+/* Style for the cart icon */
+.navbar-icons .cart-icon {
+  position: relative; /* Ensure dot is positioned relative to the cart icon */
+}
+
+/* Style for the dot */
+.dot {
+  position: absolute;
+  top: -5px; /* Adjust as needed */
+  right: -5px; /* Adjust as needed */
+  background-color: tomato; /* Color of the dot */
+  color: white;
+  width: 8px; /* Size of the dot */
+  height: 8px; /* Size of the dot */
+  border-radius: 50%; /* Circular shape */
+}
+
+
+/* Full-screen menu adjustments */
+@media (max-width: 991px) {
+  .nav-collections-dropdown {
+    position: static; /* Make dropdown align properly in full-screen menu */
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar .cont {
+    justify-content: flex-start; /* Align nav items to the left */
+    position: relative;
+  }
+  .navbar .logo{
+    width:180px;
+  }
+  .navbar-collapse {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Align nav items to the left */
+    flex-grow: 1; /* Allow nav items to take available space */
+    width: auto; /* Ensure it does not exceed its content */
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: row; /* Horizontal alignment of nav items */
+    margin: 0;
+    padding: 0; /* Remove default padding */
+  }
+
+  .navbar-nav .nav-item {
+    margin-left: 20px; /* Gap between nav items */
+  }
+
+  .btn-close-menu {
+    display: none; /* Hide the close button on large screens */
+  }
+  .navbar-icons {
+    margin-right: 20px;
+    gap: 40px;
+  }
+
+  .nav-profile-dropdown {
+    right: auto; /* Reset right positioning */
+    left: auto; /* Add margin-left for larger screens if needed */
+    margin-left: -150px; /* Adjust the margin-left to position it correctly */
+  }
+
+  .nav-profile-dropdown li {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+  .nav-profile-dropdown img {
+    width: 20px;
+  }
+}
+
+/* Full-screen menu styling for small devices */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white; /* Adjust as needed */
+    z-index: 1050;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow: hidden; /* Prevent scrolling */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar .logo{
+    width:180px;
+  }
+  .navbar-collapse.show {
+    transform: translateX(0);
+  }
+
+  .navbar-collapse .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Make nav items take full width */
+    text-align: center; /* Center the text */
+  }
+
+  .navbar-collapse .nav-item {
+    margin-bottom: 15px; /* Add gap between nav items */
+  }
+
+  .navbar-collapse .nav-link {
+    font-size: 24px;
+    padding: 15px 0;
+  }
+
+  .btn-close-menu {
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 15px; /* Position close button on the left */
+    font-size: 30px;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  /* Prevent background scrolling when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+  .navbar-icons {
+    margin-right: 20px;
+    gap: 30px;
+  }
+
+  .nav-profile-dropdown {
+    right: 0; /* Ensure dropdown is aligned to the right */
+    left: auto; /* Reset left positioning */
+  }
+
+  .nav-profile-dropdown li {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+  .nav-profile-dropdown img {
+    width: 20px;
+  }
+}/* General navbar styling */
+
+/* Align nav items to the left and center the logo for large screens */
+@media (min-width: 992px) {
+  .navbar .cont {
+    justify-content: flex-start; /* Align nav items to the left */
+    position: relative;
+  }
+
+  .navbar-collapse {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Align nav items to the left */
+    flex-grow: 1; /* Allow nav items to take available space */
+    width: auto; /* Ensure it does not exceed its content */
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: row; /* Horizontal alignment of nav items */
+    margin: 0;
+    padding: 0; /* Remove default padding */
+  }
+
+  .navbar-nav .nav-item {
+    margin-left: 20px; /* Gap between nav items */
+  }
+
+  .btn-close-menu {
+    display: none; /* Hide the close button on large screens */
+  }
+
+  .navbar-icons {
+    margin-right: 20px;
+    gap: 40px;
+  }
+
+  .nav-profile-dropdown {
+    right: auto; /* Reset right positioning */
+    left: auto; /* Add margin-left for larger screens if needed */
+    margin-left: -150px; /* Adjust the margin-left to position it correctly */
+  }
+}
+
+/* Full-screen menu styling for small devices */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white; /* Adjust as needed */
+    z-index: 1050;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow: hidden; /* Prevent scrolling */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-collapse.show {
+    transform: translateX(0);
+  }
+
+  .navbar-collapse .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Make nav items take full width */
+    text-align: center; /* Center the text */
+  }
+
+  .btn-close-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: black;
+  }
+}
+
+
+/* Adjustments for different screen sizes */
+@media (max-width: 1050px) {
+  .navbar .logo {
+    width: 140px;
+  }
+  .navbar-icons{
+    margin-right: 20px;
+    gap: 10px;
+  }
+  .nav-profile-dropdown li{
+    font-size: 12px;
+   margin-left: 10px;
+   }
+   .nav-profile-dropdown img{
+     width: 20px;
+   }
+
+}
+
+@media (max-width: 900px) {
+  .navbar .logo {
+    width: 120px;
+  }
+  .navbar-icons{
+    margin-right: 20px;
+    gap: 30px;
+  }
+  .nav-profile-dropdown li{
+    font-size: 12px;
+   margin-left: 10px;
+   }
+   .nav-profile-dropdown img{
+     width: 20px;
+   }
+}
+
+@media (max-width: 750px) {
+  .navbar-icons {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    position: absolute; /* Position the icons */
+    right: 0; /* Align to the right */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+  }
+  .navbar .logo{
+    width:180px;
+  }
+  .navbar-icons > * {
+    margin-right: 10px; /* Add gap between icons */
+  }
+
+  .navbar-profile img {
+    cursor: pointer;
+  }
+
+  .nav-profile-dropdown {
+    display: none;
+    background-color: #fff2ef;
+    padding: 6px 20px;
+    border-radius: 4px;
+    border: 1px solid tomato;
+    outline: 2px solid white;
+    list-style: none;
+    z-index: 1;
+  }
+
+  .navbar-profile:hover .nav-profile-dropdown {
+    display: block;
+  }
+  .navbar-icons{
+    margin-right: 20px;
+    gap: 30px;
+  }
+  .nav-profile-dropdown li{
+    font-size: 12px;
+   margin-right: 50px;
+   }
+   .nav-profile-dropdown img{
+     width: 20px;
+   }
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    padding: 10px 0;
+  }
+  .navbar .logo{
+    margin-top: 13px;
+    width:120px;
+  }
+  .navbar .logo {
+    width: 100px;
+  }
+  .nav-profile-dropdown li{
+    font-size: 12px;
+   margin-right: 50px;
+   }
+   .nav-profile-dropdown img{
+     width: 20px;
+   }
+}
+
+@media (max-width: 450px) {
+  .navbar .cart-icon-mobile img {
+    width: 16px;
+  }
+  .navbar .logo{
+    margin-top: 13px;
+    width:100px;
+  }
+  .navbar .btn {
+    padding: 5px 10px;
+  }
+  .navbar-icons{
+    margin-right: 10px;
+    gap: 20px;
+  }
+  .nav-profile-dropdown li{
+    font-size: 12px;
+   margin-right: 50px;
+   }
+   .nav-profile-dropdown img{
+     width: 20px;
+   }
+   .btn-close-menu{
+    font-size: 30px;
+    margin-right: 70%;
+   }
+}
+  

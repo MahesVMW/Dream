@@ -1,0 +1,52 @@
+/* General styles for the container */
+.container {
+  padding-top: 2rem;
+  /* Removed scroll-based styles */
+}
+
+/* Carousel item image styling */
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Carousel caption styling */
+.carousel-caption {
+  color: #f31c1c; /* White text (if needed for other elements) */
+  padding: 1rem;
+}
+
+/* Heading in carousel caption */
+.carousel-caption h3 {
+  color: #000; /* Black color for the heading */
+}
+
+/* Paragraph in carousel caption */
+.carousel-caption p {
+  color: #87CEEB; /* Sky blue color for the paragraph */
+  font-weight: bolder;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 19px; /* Regular font size */
+}
+
+.about {
+  font-family: "Oregano", cursive;
+  font-size: 20px;
+  margin-bottom: 1rem;
+  color: #555; 
+  line-height: 1.6; 
+}
+
+h2 {
+  color: #333; 
+  font-family: 'Georgia', serif; 
+  margin-bottom: 1.5rem;
+}
+
+.para {
+  color: #6faabe;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-family: 'Arial', sans-serif; 
+  line-height: 1.6; 
+}

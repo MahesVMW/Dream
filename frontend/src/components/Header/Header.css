@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Foldit:wght@100..900&family=Gupter:wght@400;500;700&family=Jost:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Outfit:wght@100..900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Foldit:wght@100..900&family=Gupter:wght@400;500;700&family=Jost:ital,wght@0,100..900;1,100..900&family=Mate+SC&family=Merienda:wght@300..900&family=Orbitron:wght@400..900&family=Oregano:ital@0;1&family=Outfit:wght@100..900&family=Rajdhani:wght@300;400;500;600;700&family=Shadows+Into+Light&display=swap');
+.header {
+  position: relative;
+  height: 45vw; /* Adjusted height for larger screens */
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the video covers the entire header */
+  z-index: -1; /* Place the video behind the content */
+}
+
+.header-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center text horizontally */
+  text-align: center; /* Center text inside the container */
+  gap: 1vw;
+  max-width: 80%;
+  animation: fadeUp 2s;
+  padding: 20px;
+  border-radius: 15px;
+  font-family: 'Open Sans', sans-serif; /* Apply font */
+}
+
+.header-contents h2 {
+  font-weight: 700;
+  color: #6185a8;
+  font-size: max(3.2vw, 17px);
+  text-shadow: 2px 2px 5px rgba(249, 248, 248, 0.7); /* Add text shadow */
+  font-family: "Mate SC", serif;
+  animation: fadeInText 2s;
+}
+
+.header-contents p {
+  font-weight: bold;
+  color: rgb(16, 16, 16);
+  text-shadow: 2px 2px 5px rgba(249, 248, 248, 0.7);
+  font-size: max(1vw, 25px);
+  line-height: 1.2; /* Increase line height for better readability */
+  animation: fadeInText 2s;
+  font-family: "Orbitron", sans-serif;
+}
+
+.header-contents button:hover {
+  background-color: #ae89bb; /* Change button color on hover */
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media queries */
+@media (max-width: 1050px) {
+  .header {
+    height: 70vw; /* Adjusted height for medium screens */
+  }
+  .header-video{
+    width: 100%;
+  }
+  .header-contents {
+    max-width: 90%;
+  }
+
+  .header-contents p {
+    font-size: 3vw;
+  }
+
+  .header-contents button {
+    padding: 1.5vw 3vw;
+    font-size: 1vw;
+  }
+}
+
+@media (max-width: 750px) {
+  .header {
+    height: 70vw; /* Increased height for smaller screens */
+  }
+
+  .header-contents {
+    max-width: 95%;
+    padding: 20px;
+  }
+
+  .header-contents h2 {
+    font-size: max(5vw, 30px);
+    color: rgb(102, 165, 165);
+  }
+
+  .header-contents p {
+    font-size: 14px; /* Adjust font size for better readability */
+  }
+
+  .header-contents button {
+    padding: 2vw 4vw;
+    font-size: 1.5vw;
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    height: 100vw; /* Increased height for very small screens */
+  }
+  .header-video{
+    width: 100%;
+  }
+}

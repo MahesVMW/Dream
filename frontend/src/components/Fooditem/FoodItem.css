@@ -1,0 +1,115 @@
+.food-item {
+  width: 100%;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px #00000015;
+  transition: all 0.3s ease-in-out; /* Smooth transition for all properties */
+  opacity: 0;
+  transform: translateY(-20px); /* Initial state for fade-down */
+  padding: 20px;
+}
+
+.food-item.animate-fade-down {
+  opacity: 1;
+  transform: translateY(0); /* Final state for fade-down */
+}
+
+.food-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 15px #b4555525;
+}
+
+.food-item-image {
+  width: 100%;
+  border-radius: 15px 15px 0px 0px;
+  transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+}
+
+.food-item-info {
+  padding: 20px;
+}
+
+.food-item-info-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.food-item-name-rating p {
+  color: #0e0e0e;
+  font-family: "Outfit", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.food-item-name-rating img {
+  width: 90px;
+}
+
+.food-item-desc {
+  margin-top: 5px;
+  color: #0e3f42;
+  font-weight: 400;
+  font-size: 1rem; /* Responsive font size */
+  font-family: "Outfit", sans-serif;
+  width: 100%; /* Full width of the container */
+  text-align: left; /* Adjust text alignment if needed */
+  box-sizing: border-box; /* Ensure padding/margin don't affect width */
+  overflow-wrap: break-word; /* Ensure long words break correctly */
+}
+
+.food-item-price {
+  color: #78a8d9;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 10px 0px;
+}
+
+.food-item-img-container {
+  position: relative;
+}
+
+.food-item-img-container .add {
+  width: 35px;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+}
+
+.food-item-counter {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px;
+  border-radius: 50px;
+  background-color: white;
+  transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+}
+
+.food-item-counter img {
+  width: 30px;
+}
+
+.view-item-btn {
+  background-color: #3b74b1; /* Button color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background color and transform */
+  margin-top: 10px;
+}
+
+.view-item-btn:hover {
+  background-color: #0056b3; /* Darker button color on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}

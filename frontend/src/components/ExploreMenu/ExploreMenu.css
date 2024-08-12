@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Gupter:wght@400;500;700&family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Gupter:wght@400;500;700&family=Orbitron:wght@400..900&family=Outfit:wght@100..900&display=swap');
+
+.explore-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 2s ease-out;
+}
+
+.explore-menu.fade-down {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.explore-menu h1 {
+  font-family: "Orbitron", sans-serif;
+  color: #6996c4;
+  font-weight: 700;
+  text-align: center; /* Center align the text */
+}
+
+.explore-menu-list-container {
+  position: relative;
+}
+
+.explore-menu-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  margin: 20px 0px;
+  padding: 5px;
+  overflow-x: scroll;
+}
+
+.explore-menu-list::-webkit-scrollbar {
+  display: none;
+}
+
+.explore-menu-list-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.explore-menu-list-item img {
+  width: 12.5vw;
+  min-width: 60px;
+  height: 12.5vw;
+  min-height: 60px;
+  object-fit: cover;
+  transition: transform 0.3s ease; /* Smooth transition for image scaling */
+}
+
+.explore-menu-list-item p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 10px;
+  color: #f3f4f4;
+  font-size: max(1vw, 16px);
+  font-weight: 600;
+  opacity: 1; /* Text always visible */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+.explore-menu-list-item:hover img {
+  transform: scale(1.1); /* Scale on hover */
+}
+
+.explore-menu hr {
+  margin: 10px 0px;
+  height: 2px;
+  background-color: #e2e2e2;
+  border: none;
+}
+
+.explore-menu-list-item.active {
+  border: 2px solid rgb(79, 78, 78);
+  padding: 2px;
+}
+
+.scroll-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 20%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+@media (max-width: 1050px) {
+  .explore-menu-text {
+    max-width: 100%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 750px) {
+  .explore-menu-list-item img {
+    width: 29vw; /* Increase image size on smaller screens */
+    height: 30vw; /* Maintain aspect ratio */
+    min-width: 80px; /* Optional: ensure a minimum size */
+    min-height: 80px;
+    padding: 5px; /* Optional: ensure a minimum size */
+  }
+
+  .explore-menu-text {
+    font-size: 12px;
+  }
+}
