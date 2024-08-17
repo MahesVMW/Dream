@@ -53,7 +53,7 @@ const Contactus = () => {
                   <textarea className="form-control" id="message" name="message" rows="5" required></textarea>
                 </div>
                 <div className="d-flex justify-content-center">
-                  <button type="submit" className="btn btn-primary">Submit</button>
+                  <button type="submit" className="btn btn-info">Submit</button>
                 </div>
               </form>
             </div>

@@ -169,7 +169,7 @@ const Placeorder = () => {
                 <strong>Total</strong>
                 <strong>₹ {getTotalCartAmount() + 2}</strong>
               </div>
-              <button type="submit" className="btn btn-primary btn-block">Place Order</button>
+              <button type="submit" className="btn place btn-block">Place Order</button>
             </div>
           </div>
         </div>

@@ -15,6 +15,7 @@ const LoginPopup = ({ setShowlogin }) => {
     email: '',
     password: ''
   });
+  const [userName, setUserName] = useState(''); // State to store username
 
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
@@ -34,8 +35,15 @@ const LoginPopup = ({ setShowlogin }) => {
       if (response.data.success) {
         setToken(response.data.token);
         localStorage.setItem('token', response.data.token);
+        
+        // Update the username in state and localStorage
+        const name = data.name || 'User';
+        setUserName(name);
+        localStorage.setItem('userName', name);
+        localStorage.setItem('userEmail', data.email);
+
         setShowlogin(false);
-        enqueueSnackbar(`${currState} successful!`, { variant: 'success' });
+        enqueueSnackbar(`${currState} successful!`);
       } else {
         enqueueSnackbar(response.data.message, { variant: 'error' });
       }
@@ -90,6 +98,7 @@ const LoginPopup = ({ setShowlogin }) => {
         ) : (
           <p>Already have an account? <span onClick={() => setCurrState('Login')}>Login here</span></p>
         )}
+        {userName && <p>Welcome back, {userName}!</p>} {/* Display username */}
       </form>
     </div>
   );

@@ -13,6 +13,7 @@ import About from './components/About/About';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Profile from './components/Profile/Profile';
 
 const App = () => {
   const [showLogin, setShowlogin] = useState(false);
@@ -32,6 +33,7 @@ const App = () => {
           <Route path='/contactus' element={<Contactus />} />
           <Route path='/aboutus' element={<About />} />
           <Route path='/product/:id' element={<ProductDetails />} />
+          <Route path='/profile' element={<Profile />} />
         </Routes>
       </div>
       <Footer />

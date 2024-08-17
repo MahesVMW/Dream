@@ -1,114 +1,173 @@
-import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Navbar.css";
 import { StoreContext } from '../../context/StoreContext';
 import { assets } from '../../assets/assets';
-import './Navbar.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import MyOrders from "../../pages/MyOrders/MyOrders";
 
-const Navbar = ({ setShowlogin }) => {
-  const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
+const NavbarComponent = ({ setShowlogin }) => {
   const navigate = useNavigate();
-  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
-  const [showFullScreenMenu, setShowFullScreenMenu] = useState(false);
+  const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
+  const [showLeftMenu, setShowLeftMenu] = useState(false);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [selectedMenu, setSelectedMenu] = useState("profile");
+  const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false);
 
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (!storedToken) {
+      setToken("");
+    }
+  }, [setToken]);
 
-  const logout = () => {
+  const userName = localStorage.getItem('userName') || 'guest';
+  const userEmail = localStorage.getItem('userEmail') || 'Not Available';
+
+  const toggleProfileMenu = () => {
+    setShowProfileMenu(!showProfileMenu);
+    document.body.classList.toggle("menu-open", !showProfileMenu);
+  };
+
+  const toggleLeftMenu = () => {
+    setShowLeftMenu(prevState => !prevState);
+    document.body.classList.toggle("menu-open", !showLeftMenu);
+  };
+
+  const closeAllMenus = () => {
+    setShowLeftMenu(false);
+    setShowProfileMenu(false);
+    document.body.classList.remove("menu-open");
+  };
+
+  const confirmLogout = () => {
     localStorage.removeItem("token");
     setToken("");
     navigate("/");
-    setShowProfileDropdown(false);
+    closeAllMenus();
+    setShowLogoutConfirmation(false);
   };
 
-  const toggleMenu = () => {
-    setShowFullScreenMenu(!showFullScreenMenu);
-    document.body.classList.toggle('menu-open', !showFullScreenMenu);
-  };
-
-  const closeMenu = () => {
-    setShowFullScreenMenu(false);
-    document.body.classList.remove('menu-open');
-  };
-
-  const toggleProfileDropdown = () => {
-    setShowProfileDropdown(!showProfileDropdown);
-  };
-
-  const toggleCollectionsDropdown = () => {
-    setShowCollectionsDropdown(!showCollectionsDropdown);
-  };
-
-  const handleProfileClick = (callback) => {
-    callback();
-    setShowProfileDropdown(false);
+  const renderProfileContent = () => {
+    switch (selectedMenu) {
+      case "profile":
+        return (
+          <div className="profile-details">
+            <p><i className="fas fa-user-circle"></i> {userName}</p>
+            <p><i className="fas fa-envelope"></i> {userEmail}</p>
+            <p><i className="fa-solid fa-address-book"></i> Not Available</p>
+            <p><i className="fa-solid fa-phone"></i> Not Available</p>
+          </div>
+        );
+      case "orders":
+        return <MyOrders />;
+      case "settings":
+        return <div className="settings-details">Settings</div>;
+        case "logout":
+          return showLogoutConfirmation ? (
+            <div className="logout-confirmation">
+              <p>Are you sure you want to logout?</p>
+              <div className="d-flex justify-content-between">
+                <button className="btn btn-secondary" onClick={() => setShowLogoutConfirmation(false)}>Cancel</button>
+                <button className="btn btn-danger" onClick={confirmLogout}>Logout</button>
+              </div>
+            </div>
+          ) : null;        
+      default:
+        return null;
+    }
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
-      <div className="cont">
-        <button className="navbar-toggler ml-2" type="button" onClick={toggleMenu}>
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className={`navbar-collapse ${showFullScreenMenu ? 'show' : ''}`} id="navbarNav">
-          <button className="btn-close-menu" onClick={closeMenu}>×</button>
-<ul className="navbar-nav">
-  <li className="nav-item" onClick={closeMenu}>
-    <Link to='/' className="nav-link">Home</Link>
-  </li>
-  <hr />
-  <li className="nav-item" onClick={closeMenu}>
-    <a href='#app-download' className="nav-link">Mobile App</a>
-  </li>
-  <hr />
-  <li className="nav-item" onClick={closeMenu}>
-    <Link to='/contactus' className="nav-link">Contact-us</Link>
-  </li>
-  <hr />
-  <li className="nav-item" onClick={closeMenu}>
-    <a href="#!" className="nav-link">Collections</a>
-  </li>
-  <hr />
-  <li className="nav-item" onClick={closeMenu}>
-    <a href='/aboutus' className="nav-link">About-us</a>
-  </li>
-  <hr />
-</ul>
+    <div>
+      {showLeftMenu && <div className="overlay active" onClick={closeAllMenus}></div>}
+      {showProfileMenu && <div className="profile-overlay active" onClick={closeAllMenus}></div>}
 
+      {/* Sidebar Menu for Small Devices */}
+      <nav id="left-sidebar" className={showLeftMenu ? "active" : ""}>
+        <div id="dismiss-left" onClick={toggleLeftMenu}>
+          <i className="fas fa-arrow-left"></i>
         </div>
-        <Link to='/' className="navbar-brand py-4">
-          <img src={assets.dream} alt="Logo" className="logo mt-2" />
-        </Link>
-        <div className="navbar-icons d-flex align-items-center">
-          {token && (
-            <div className="navbar-profile position-relative mr-1">
-              <img
-                src={assets.profile_icon}
-                alt="Profile"
-                onClick={toggleProfileDropdown}
-              />
-              {showProfileDropdown && (
-                <ul className="nav-profile-dropdown position-absolute">
-                  <li className="d-flex align-items-center gap-2" onClick={() => handleProfileClick(() => navigate('/myorders'))}>
-                    <img src={assets.bag_icon} alt="Orders" />Orders
-                  </li>
-                  <hr />
-                  <li className="d-flex align-items-center gap-2" onClick={logout}>
-                    <img src={assets.logout_icon} alt="Logout" />Logout
-                  </li>
-                </ul>
-              )}
-            </div>
-          )}
-          {!token ? (
-            <button className="btn btn-outline-tomato ms-3" onClick={() => setShowlogin(true)}>Sign In</button>
-          ) : null}
-          <Link to='/cart' className="d-flex align-items-center position-relative me-2">
-            <img src={assets.basket_icon} alt="Cart" />
-            {getTotalCartAmount() > 0 && <div className="dot position-absolute"></div>}
-          </Link>
+        <ul className="list-unstyled components">
+          <li><Link to="/" onClick={closeAllMenus}>Home</Link></li>
+          <li><Link to="/collections" onClick={closeAllMenus}>Collections</Link></li>
+          <li><Link to="/aboutus" onClick={closeAllMenus}>About</Link></li>
+          <li><Link to="/contactus" onClick={closeAllMenus}>Contact</Link></li>
+        </ul>
+      </nav>
+
+      <div id="profile-menu" className={showProfileMenu ? "active" : ""}>
+        <div className="profile-nav mt-5">
+          <button className="btn-close-profile" onClick={toggleProfileMenu}>
+            <i className="fas fa-times"></i>
+          </button>
+          <ul>
+            <li
+              className={selectedMenu === "profile" ? "active" : ""}
+              onClick={() => setSelectedMenu("profile")}
+            >
+              <i className="fas fa-user"></i>
+            </li>
+            <li
+              className={selectedMenu === "orders" ? "active" : ""}
+              onClick={() => setSelectedMenu("orders")}
+            >
+              <i className="fas fa-box"></i>
+            </li>
+            <li
+              className={selectedMenu === "settings" ? "active" : ""}
+              onClick={() => setSelectedMenu("settings")}
+            >
+              <i className="fas fa-cog"></i>
+            </li>
+            <li
+  onClick={() => {
+    setSelectedMenu("logout");
+    setShowLogoutConfirmation(true);
+  }}
+>
+  <i className="fa-solid fa-circle-left"></i>
+</li>
+
+          </ul>
+        </div>
+        <div className="profile-content mx-5">
+          {renderProfileContent()}
         </div>
       </div>
-    </nav>
-  );
-}
 
-export default Navbar;
+      {/* Navbar Header */}
+      <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <button id="sidebarCollapseLeft" className="btn btn-primary d-lg-none ml-2" onClick={toggleLeftMenu}>
+          <i className="fas fa-bars"></i>
+        </button>
+        <Link className="navbar-brand ml-5" to="/">
+          <img src={assets.dream} alt="Logo" />
+        </Link>
+
+        <ul className="navbar-nav d-none d-lg-flex ml-5">
+          <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
+          <li className="nav-item"><Link to="/mobile" className="nav-link">Mobile App</Link></li>
+          <li className="nav-item"><Link to="/collections" className="nav-link">Collections</Link></li>
+          <li className="nav-item"><Link to="/about" className="nav-link">About</Link></li>
+          <li className="nav-item"><Link to="/contact" className="nav-link">Contact</Link></li>
+        </ul>
+
+        <Link to='/cart' className="d-flex align-items-center position-relative me-2">
+          <i className="fa-solid fa-cart-shopping"></i>
+          {getTotalCartAmount() > 0 && <div className="dot position-absolute"></div>}
+        </Link>
+
+        {token ? (
+          <button id="profileToggle" className="btn btn-primary" onClick={toggleProfileMenu}>
+            <i className="fas fa-user"></i>
+          </button>
+        ) : (
+          <button className="btn signin ms-3" onClick={() => setShowlogin(true)}><i className="fa-solid fa-right-to-bracket"></i></button>
+        )}
+      </nav>
+    </div>
+  );
+};
+
+export default NavbarComponent;

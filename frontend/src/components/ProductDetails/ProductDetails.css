@@ -3,6 +3,7 @@
     flex-direction: column;
     padding: 20px;
     margin-top: 60px;
+    position: relative;
 }
 
 .back-btn {
