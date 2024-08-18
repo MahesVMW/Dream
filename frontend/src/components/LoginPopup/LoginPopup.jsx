@@ -43,7 +43,7 @@ const LoginPopup = ({ setShowlogin }) => {
         localStorage.setItem('userEmail', data.email);
 
         setShowlogin(false);
-        enqueueSnackbar(`${currState} successful!`);
+        enqueueSnackbar(`${currState} successful!`,{ variant: 'success' });
       } else {
         enqueueSnackbar(response.data.message, { variant: 'error' });
       }

@@ -25,8 +25,10 @@ const NavbarComponent = ({ setShowlogin }) => {
   const userEmail = localStorage.getItem('userEmail') || 'Not Available';
 
   const toggleProfileMenu = () => {
-    setShowProfileMenu(!showProfileMenu);
-    document.body.classList.toggle("menu-open", !showProfileMenu);
+    const isOpening = !showProfileMenu;
+    setShowProfileMenu(isOpening);
+    setSelectedMenu("profile");  // Set to profile by default when opening
+    document.body.classList.toggle("menu-open", isOpening);
   };
 
   const toggleLeftMenu = () => {
@@ -63,16 +65,16 @@ const NavbarComponent = ({ setShowlogin }) => {
         return <MyOrders />;
       case "settings":
         return <div className="settings-details">Settings</div>;
-        case "logout":
-          return showLogoutConfirmation ? (
-            <div className="logout-confirmation">
-              <p>Are you sure you want to logout?</p>
-              <div className="d-flex justify-content-between">
-                <button className="btn btn-secondary" onClick={() => setShowLogoutConfirmation(false)}>Cancel</button>
-                <button className="btn btn-danger" onClick={confirmLogout}>Logout</button>
-              </div>
+      case "logout":
+        return showLogoutConfirmation ? (
+          <div className="logout-confirmation">
+            <p>Are you sure you want to logout?</p>
+            <div className="d-flex justify-content-between">
+              <button className="btn btn-secondary" onClick={() => setShowLogoutConfirmation(false)}>Cancel</button>
+              <button className="btn btn-danger" onClick={confirmLogout}>Logout</button>
             </div>
-          ) : null;        
+          </div>
+        ) : null;
       default:
         return null;
     }
@@ -90,7 +92,6 @@ const NavbarComponent = ({ setShowlogin }) => {
         </div>
         <ul className="list-unstyled components">
           <li><Link to="/" onClick={closeAllMenus}>Home</Link></li>
-          <li><Link to="/collections" onClick={closeAllMenus}>Collections</Link></li>
           <li><Link to="/aboutus" onClick={closeAllMenus}>About</Link></li>
           <li><Link to="/contactus" onClick={closeAllMenus}>Contact</Link></li>
         </ul>
@@ -121,14 +122,13 @@ const NavbarComponent = ({ setShowlogin }) => {
               <i className="fas fa-cog"></i>
             </li>
             <li
-  onClick={() => {
-    setSelectedMenu("logout");
-    setShowLogoutConfirmation(true);
-  }}
->
-  <i className="fa-solid fa-circle-left"></i>
-</li>
-
+              onClick={() => {
+                setSelectedMenu("logout");
+                setShowLogoutConfirmation(true);
+              }}
+            >
+              <i className="fa-solid fa-circle-left"></i>
+            </li>
           </ul>
         </div>
         <div className="profile-content mx-5">
@@ -147,20 +147,18 @@ const NavbarComponent = ({ setShowlogin }) => {
 
         <ul className="navbar-nav d-none d-lg-flex ml-5">
           <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
-          <li className="nav-item"><Link to="/mobile" className="nav-link">Mobile App</Link></li>
-          <li className="nav-item"><Link to="/collections" className="nav-link">Collections</Link></li>
           <li className="nav-item"><Link to="/about" className="nav-link">About</Link></li>
           <li className="nav-item"><Link to="/contact" className="nav-link">Contact</Link></li>
         </ul>
 
-        <Link to='/cart' className="d-flex align-items-center position-relative me-2">
+        <Link to='/cart' className="cart-icon d-flex align-items-center position-relative me-2">
           <i className="fa-solid fa-cart-shopping"></i>
           {getTotalCartAmount() > 0 && <div className="dot position-absolute"></div>}
         </Link>
 
         {token ? (
-          <button id="profileToggle" className="btn btn-primary" onClick={toggleProfileMenu}>
-            <i className="fas fa-user"></i>
+          <button id="profileToggle" className="profile-icon btn btn-primary mr-2" onClick={toggleProfileMenu}>
+            <img src={assets.profile_image} alt="" />
           </button>
         ) : (
           <button className="btn signin ms-3" onClick={() => setShowlogin(true)}><i className="fa-solid fa-right-to-bracket"></i></button>

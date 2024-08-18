@@ -1,65 +1,72 @@
-  /* Navbar Styling */
-  .navbar {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    background-color: #fff;
-    z-index: 1000;
-  }
 
-  .navbar .navbar-nav {
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    margin-left: auto; /* Push nav items to the right */
-    margin-right: auto;
-    align-items: center; /* Center nav items */
-  }
+.navbar {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+  z-index: 1000;
+}
 
-  .navbar .navbar-brand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.navbar .navbar-nav {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center; 
+}
 
-  .navbar .navbar-brand img {
-    width: 180px;
-  }
+.navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .navbar .nav-item {
-    color: black;
-    margin-left: 50px; /* Gap between nav items */
-  }
+.navbar .navbar-brand img {
+  width: 180px;
+}
 
-  .navbar .nav-item a {
-    text-decoration: none;
-  }
+.navbar .nav-item {
+  color: black;
+  margin-left: 50px; 
+}
 
-  .dot {
-    position: absolute;
-    top: -5px; /* Adjust as needed */
-    right: -5px; /* Adjust as needed */
-    background-color: tomato; /* Color of the dot */
-    color: white;
-    width: 12px; /* Size of the dot */
-    height: 12px; /* Size of the dot */
-    border-radius: 50%; /* Circular shape */
-  }
+.navbar .nav-item a {
+  text-decoration: none;
+}
+
+.dot {
+  position: absolute;
+  top: -5px; 
+  right: -5px; 
+  background-color: tomato; 
+  color: white;
+  width: 12px; 
+  height: 12px; 
+  border-radius: 50%; 
+}
 
   /* Center logo and push nav items to the left on large devices */
   @media (min-width: 992px) {
     .navbar .navbar-nav {
       margin-left: 0;
-      margin-right: 0; /* Ensure no margin on the right */
+      margin-right: 0; 
       flex: 1;
-      justify-content: flex-start; /* Align nav items to the left */
+      justify-content: flex-start; 
     }
 
     .navbar .navbar-brand {
       position: absolute;
       left: 50%;
-      transform: translateX(-50%); /* Center logo */
+      transform: translateX(-50%); 
+    }
+    .cart-icon {
+      margin-right: 20px; 
+    }
+    
+    .profile-icon {
+      margin-left: 20px; 
     }
   }
 
@@ -69,28 +76,28 @@
   }
 /* Sidebar Menu for Small Devices */
 #left-sidebar {
-  display: block; /* Ensure it's displayed */
-  width: 250px; /* Adjust width as needed */
+  display: block; 
+  width: 250px; 
   position: fixed;
   top: 0;
-  left: -250px; /* Initially off-screen */
+  left: -250px; 
   height: 100vh;
   background: #5bbadc;
   color: #fff;
   padding: 20px;
   z-index: 2002;
-  transition: left 0.3s ease; /* Smooth transition */
+  transition: left 0.3s ease; 
 }
 
 /* Sidebar active state */
 #left-sidebar.active {
-  left: 0; /* Slide in from the left */
+  left: 0; 
 }
 
 /* Overlay for Sidebar */
 .overlay.active {
   z-index: 2000;
-  background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.5); 
   position: fixed;
   top: 0;
   left: 0;
@@ -137,7 +144,7 @@
     background-color: #4da4cf;
     color: #fff;
     display: flex;
-    flex-direction: row; /* Align nav and content side by side */
+    flex-direction: row; 
     padding: 0;
     z-index: 2002;
   }
@@ -148,10 +155,10 @@
 
   #profile-menu .profile-nav {
     background-color: #171515;
-    width: 50px; /* Adjust width as needed */
-    height: 100vh; /* Full height */
+    width: 50px;
+    height: 100vh; 
     display: flex;
-    flex-direction: column; /* Nav items in column direction */
+    flex-direction: column; 
     padding: 20px;
     margin-top: 50px;
   }
@@ -224,9 +231,15 @@
     display: flex;
   }
 
-  #sidebarCollapseLeft,
-  #profileToggle {
+  #sidebarCollapseLeft{
     background: #4da4cf;
+    color: #fff;
+    border: none;
+    padding: 10px; /* Adjust padding for better click area */
+    cursor: pointer;
+  }
+  #profileToggle {
+    background: none;
     color: #fff;
     border: none;
     padding: 10px; /* Adjust padding for better click area */

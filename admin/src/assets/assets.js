@@ -4,8 +4,9 @@ import order_icon from './order_icon.png';
 import profile_image from './profile_image.png';
 import upload_area from './upload_area.png';
 import parcel_icon from './parcel_icon.png';
-
+import dream from './dream.png';
 export const assets = {
+    dream,
     logo,
     add_icon,
     order_icon,

@@ -127,7 +127,7 @@
 
 @media (max-width: 450px) {
   .header {
-    height: 100vw; /* Increased height for very small screens */
+    height: 120vw; /* Increased height for very small screens */
   }
   .header-video{
     width: 100%;

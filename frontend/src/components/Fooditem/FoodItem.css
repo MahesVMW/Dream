@@ -4,12 +4,14 @@
   border-radius: 15px;
   box-shadow: 0px 0px 10px #00000015;
   padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transition */
 }
 
 .food-item:hover {
   transform: scale(1.02);
   box-shadow: 0px 0px 15px #b4555525;
 }
+
 
 .food-item-image {
   width: 100%;

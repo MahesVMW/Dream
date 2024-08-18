@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-content-left">
             <img src={assets.dream}  className='logo' alt="" />
-            <p className='mt-3'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime reprehenderit ex culpa laborum tempora libero consequuntur, adipisci dicta! Accusamus maiores rem, aut maxime quae vitae iusto doloribus! Architecto, repellendus eaque!</p>
+            <p className='mt-3'>At Dream Clothings, we believe that fashion is more than just clothing—it's an expression of who you are. Our mission is to bring you high-quality, stylish apparel that makes you feel confident and comfortable every day. Whether you're dressing for a special occasion or looking for everyday essentials, our curated collections offer something for everyone. Thank you for choosing Dream Clothings to be a part of your style journey.</p>
             <div className="footer-social-icons">
                 <img src={assets.facebook_icon} alt="" />
                 <img src={assets.linkedin_icon} alt="" />
