@@ -9,11 +9,6 @@ const Cart = ({ setShowlogin }) => {
 
     // Calculate total items in the cart
     const totalItems = Object.values(cartItems).reduce((acc, quantity) => acc + quantity, 0);
-
-    // Debugging: Log cartItems and totalItems to ensure they are being updated
-    console.log("Cart Items:", cartItems);
-    console.log("Total Items:", totalItems);
-
     const handleProceedToCheckout = () => {
         if (!token) {
             setShowlogin(true);

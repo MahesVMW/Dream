@@ -157,9 +157,9 @@ const NavbarComponent = ({ setShowlogin }) => {
         </Link>
 
         {token ? (
-          <button id="profileToggle" className="profile-icon btn btn-primary mr-2" onClick={toggleProfileMenu}>
-            <img src={assets.profile_image} alt="" />
-          </button>
+         <button id="profileToggle" className="profile-icon btn btn-primary mr-2" onClick={toggleProfileMenu}>
+         <img src={assets.profile_image} alt="" style={{ width: '30px', height: '30px' }} />
+       </button>       
         ) : (
           <button className="btn signin ms-3" onClick={() => setShowlogin(true)}><i className="fa-solid fa-right-to-bracket"></i></button>
         )}

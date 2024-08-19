@@ -274,37 +274,36 @@
     height: 24px;
   }
   .signin {
-    color: #4da4cf; /* Set the text color */
+    color: #4da4cf; 
     border-color: #4da4cf;
-    background-color: #4da4cf; /* Set the border color */
+    background-color: #4da4cf; 
   }
   
   .signin i {
-    color: #f0f1f2; /* Set the icon color */
+    color: #f0f1f2; 
   }
   .signin:hover{
     background-color:#4da4cf ;
   }
-  /* Navbar.css */
 
-/* Styling for the cart icon link */
+
+
 .d-flex.align-items-center.position-relative.me-2 i.fa-cart-shopping {
-  font-size: 24px; /* Adjust the size of the icon if needed */
-  color: #4da4cf; /* Default color for the icon, adjust as needed */
+  font-size: 24px;
+  color: #4da4cf;
 }
 
-/* Dot indicator */
 .dot {
-  background-color: tomato; /* Set the background color of the dot */
-  width: 10px; /* Set the size of the dot */
-  height: 10px; /* Set the size of the dot */
-  border-radius: 50%; /* Make it circular */
-  top: 0; /* Adjust position as needed */
-  right: 0; /* Adjust position as needed */
-  transform: translate(50%, -50%); /* Center the dot */
+  background-color: tomato; 
+  width: 10px;
+  height: 10px; 
+  border-radius: 50%;
+  top: 0; 
+  right: 0; 
+  transform: translate(50%, -50%); 
 }
 .profile-nav ul li.active {
-  color: #4da4cf; /* Change this to your desired color */
+  color: #4da4cf; 
 }
 
 .profile-nav ul li {
@@ -320,8 +319,14 @@
   padding: 20px;
   border-radius: 8px;
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 
- 
+@media (max-width: 400px) {
+  .profile-icon img {
+    width: 20px; 
+    height: 20px;  
+  }
+  
+}
