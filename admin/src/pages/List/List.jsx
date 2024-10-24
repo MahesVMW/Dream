@@ -35,7 +35,7 @@ useEffect(()=>{
 
   return (
     <div className='list add flex-col'>
-      <p>All food list</p>
+      <p>All Product list</p>
       <div className="list-table">
         <div className="list-table-format">
             <b>Image</b>
