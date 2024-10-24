@@ -92,8 +92,8 @@ const NavbarComponent = ({ setShowlogin }) => {
         </div>
         <ul className="list-unstyled components">
           <li><Link to="/" onClick={closeAllMenus}>Home</Link></li>
-          <li><Link to="/aboutus" onClick={closeAllMenus}>About</Link></li>
-          <li><Link to="/contactus" onClick={closeAllMenus}>Contact</Link></li>
+          <li><Link to="/about" onClick={closeAllMenus}>About</Link></li>
+          <li><Link to="/contact" onClick={closeAllMenus}>Contact</Link></li>
         </ul>
       </nav>
 
